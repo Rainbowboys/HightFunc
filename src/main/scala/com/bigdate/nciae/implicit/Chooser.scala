@@ -21,4 +21,9 @@ class Chooser[T: Ordering] {
     //
     if (rdd.gt(first, second)) first else second
   }
+
+  def comparecart(first: T, second: T)(implicit ord: T => Ordering[T]): T = {
+
+
+  }
 }
