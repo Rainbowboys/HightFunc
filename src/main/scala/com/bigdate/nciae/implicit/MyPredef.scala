@@ -18,11 +18,50 @@ object MyPredef {
   //    }
   //  }
 
-  //   val GirlComperByOrdering = new Ordering[Girl] {
+
+  //  implicit val GirlComperByOrdering = new Ordering[Girl] {
   //    override def compare(x: Girl, y: Girl): Int = {
   //      x.faceValue - y.faceValue
   //    }
   //  }
+
+
+  //function for T->Ordered[T]
+  implicit val CartOrdered = (c: Cart) => new Ordered[Cart] {
+    override def compare(that: Cart): Int = {
+      if (c.faceValue == that.faceValue) {
+        c.size - that.size
+      } else {
+        c.faceValue - that.faceValue
+      }
+    }
+  }
+
+  //T->Ordering[T]
+
+  //  implicit val CartOrdering = new Ordering[Cart] {
+  //    override def compare(x: Cart, y: Cart): Int = {
+  //      if (x.faceValue == y.faceValue) {
+  //        x.size - y.size
+  //      } else {
+  //        x.faceValue - y.faceValue
+  //      }
+  //    }
+  //  }
+
+  //T->Ordering[T]
+  trait CartByOrdering extends Ordering[Cart] {
+    override def compare(x: Cart, y: Cart): Int = {
+      if (x.faceValue == y.faceValue) {
+        x.size - y.size
+      } else {
+        x.faceValue - y.faceValue
+      }
+    }
+  }
+
+  implicit object Cart extends CartByOrdering
+
 
   /**
    * 源码 ： trait IntOrdering extends Ordering[Int] {
@@ -42,5 +81,6 @@ object MyPredef {
   }
 
   implicit object Girl extends GirlOrdering
+
 
 }
