@@ -4,6 +4,9 @@ package com.bigdate.nciae
  * Created by Rainbow on 2016/11/11.
  *
  * 高阶函数和柯里化
+ *
+ * 在Scala中，方法和函数是不一样的，最本质的区别是函数可以做为参数传递到方法中
+  但是方法可以被转换成函数，神奇的下划线又出场了
  */
 object HightFunc {
 
@@ -48,6 +51,9 @@ object HightFunc {
     def m3(x: Int) = (y: Int) => x * y // m3: (x: Int)Int => Int  m3(12)(12)=144
     // val m_4=m4(12)(_)   m_4: Int => Int = <function1>  m_4(12)=144
     def m4(x: Int)(y: Int) = x * y //m4: (x: Int)(y: Int)Int  m4(12)(12)=144
+
+
+    //调用
 
 
   }
