@@ -23,7 +23,6 @@ class RichFile(f: File) {
 object ImplicitValue {
 
   def main(args: Array[String]) {
-
     val f = new File("E://pom.xml")
     val context = f.read()
     println(context)
